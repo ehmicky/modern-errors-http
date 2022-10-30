@@ -1,6 +1,6 @@
 {
   "name": "modern-errors-http",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     "types": "./build/types/main.d.ts",
