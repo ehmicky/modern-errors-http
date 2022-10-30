@@ -59,7 +59,7 @@
     "test-each": "^5.4.1"
   },
   "peerDependencies": {
-    "modern-errors": "^4.0.0-beta.3"
+    "modern-errors": "^4.0.0"
   },
   "engines": {
     "node": ">=14.18.0"
