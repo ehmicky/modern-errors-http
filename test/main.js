@@ -1,34 +1,7 @@
 import test from 'ava'
-import modernErrors from 'modern-errors'
-import modernErrorsHttp from 'modern-errors-http'
 import { each } from 'test-each'
 
-const AnyError = modernErrors([modernErrorsHttp])
-AnyError.subclass('UnknownError')
-const TestError = AnyError.subclass('TestError')
-const testError = new TestError('test')
-
-each(
-  [
-    true,
-    { unknown: true },
-    { title: true },
-    { detail: true },
-    { stack: true },
-    { status: '200' },
-    { status: 600 },
-    ...['type', 'instance'].flatMap((optName) => [
-      { [optName]: true },
-      { [optName]: '//' },
-    ]),
-    { extra: true },
-  ],
-  ({ title }, http) => {
-    test(`Options are validated | ${title}`, (t) => {
-      t.throws(testError.httpResponse.bind(testError, http))
-    })
-  },
-)
+import { TestError, testError } from './helpers/main.js'
 
 each(
   [
