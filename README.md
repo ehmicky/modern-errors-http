@@ -21,7 +21,6 @@ details") to use in an HTTP response.
 [`modern-errors`](https://github.com/ehmicky/modern-errors).
 
 ```js
-// `errors.js`
 import modernErrors from 'modern-errors'
 import modernErrorsHttp from 'modern-errors-http'
 
