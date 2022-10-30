@@ -1,12 +1,11 @@
+import modernErrors from 'modern-errors'
+import plugin, { Options, HttpResponse } from 'modern-errors-http'
 import {
   expectType,
   expectAssignable,
   expectNotAssignable,
   expectError,
 } from 'tsd'
-
-import modernErrors from '../main.js'
-import plugin, { Options, HttpResponse } from './http.js'
 
 const AnyError = modernErrors([plugin])
 const error = new AnyError('', { cause: '' })

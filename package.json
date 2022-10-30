@@ -55,7 +55,8 @@
     "statuses": "^2.0.1"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^1.0.98"
+    "@ehmicky/dev-tasks": "^1.0.98",
+    "test-each": "^5.4.1"
   },
   "peerDependencies": {
     "modern-errors": "^4.0.0-beta.3"

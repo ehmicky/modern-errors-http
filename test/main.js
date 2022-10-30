@@ -1,11 +1,11 @@
 import test from 'ava'
+import modernErrors from 'modern-errors'
+import modernErrorsHttp from 'modern-errors-http'
 import { each } from 'test-each'
 
-// eslint-disable-next-line no-restricted-imports
-import HTTP_PLUGIN from '../../src/core_plugins/http.js'
-import { defineClassOpts } from '../helpers/main.js'
-
-const { TestError } = defineClassOpts({}, {}, [HTTP_PLUGIN])
+const AnyError = modernErrors([modernErrorsHttp])
+AnyError.subclass('UnknownError')
+const TestError = AnyError.subclass('TestError')
 const testError = new TestError('test')
 
 each(

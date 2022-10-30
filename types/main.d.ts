@@ -1,4 +1,4 @@
-import type { Info } from '../main.js'
+import type { Info } from 'modern-errors'
 
 /**
  * Options of `modern-errors-http`
