@@ -11,9 +11,9 @@
 
 `modern-errors` plugin to create HTTP error responses.
 
-This adds `error.httpResponse()` which converts `error` to a
-[RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) ("problem details"). plain
-object to use in an HTTP response.
+This adds [`error.httpResponse()`](#errorhttpresponse) which converts `error` to
+a plain object ([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem
+details") to use in an HTTP response.
 
 # Features
 
