@@ -15,8 +15,6 @@ This adds [`error.httpResponse()`](#errorhttpresponse) which converts `error` to
 a plain object ([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem
 details") to use in an HTTP response.
 
-# Features
-
 # Example
 
 [Adding the plugin](https://github.com/ehmicky/modern-errors#adding-plugins) to
@@ -31,7 +29,7 @@ export const AnyError = modernErrors([modernErrorsHttp])
 // ...
 ```
 
-...
+[Creating](#errorhttpresponse) an HTTP error response.
 
 ```js
 const object = error.httpResponse()
