@@ -1,5 +1,5 @@
 {
-  "name": "template-name",
+  "name": "modern-errors-http",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -15,13 +15,13 @@
   "scripts": {
     "test": "gulp test"
   },
-  "description": "template-description",
+  "description": "`modern-errors` plugin to create HTTP error responses",
   "keywords": [],
   "license": "MIT",
-  "homepage": "https://www.github.com/ehmicky/template-name",
-  "repository": "ehmicky/template-name",
+  "homepage": "https://www.github.com/ehmicky/modern-errors-http",
+  "repository": "ehmicky/modern-errors-http",
   "bugs": {
-    "url": "https://github.com/ehmicky/template-name/issues"
+    "url": "https://github.com/ehmicky/modern-errors-http/issues"
   },
   "author": "ehmicky <ehmicky@gmail.com> (https://github.com/ehmicky)",
   "directories": {
