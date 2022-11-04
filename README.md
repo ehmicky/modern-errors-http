@@ -42,7 +42,7 @@ export const AuthError = AnyError.subclass('AuthError', {
 [Creating](#errorhttpresponse) an HTTP error response.
 
 ```js
-const error = new AuthError('Could not authenticate', {
+const error = new AuthError('Could not authenticate.', {
   http: {
     instance: '/users/62',
     extra: { userId: 62 },
