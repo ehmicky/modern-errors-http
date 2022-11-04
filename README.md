@@ -26,12 +26,28 @@ import modernErrors from 'modern-errors'
 import modernErrorsHttp from 'modern-errors-http'
 
 export const AnyError = modernErrors([modernErrorsHttp])
-// ...
+```
+
+[Configuring](#configuration) error fields.
+
+```js
+export const AuthError = AnyError.subclass('AuthError', {
+  http: {
+    type: 'https://example.com/probs/auth',
+    status: 401,
+  },
+})
 ```
 
 [Creating](#errorhttpresponse) an HTTP error response.
 
 ```js
+const error = new AuthError('Could not authenticate', {
+  http: {
+    instance: '/users/62',
+    extra: { userId: 62 },
+  },
+})
 const object = error.httpResponse()
 // {
 //   type: 'https://example.com/probs/auth',
