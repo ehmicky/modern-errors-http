@@ -84,7 +84,7 @@ Plugin object to
 
 _Return value_: `HttpResponse`
 
-Convert `error` to a plain object to use in an HTTP response. Its shape follows
+Converts `error` to a plain object to use in an HTTP response. Its shape follows
 [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) ("problem details").
 
 ## Options
@@ -97,7 +97,7 @@ _Type_: `urlString`\
 _Default_: `undefined`
 
 URI identifying and documenting the error class. Ideally, each error class
-[should set one](https://github.com/ehmicky/modern-errors/README.md#plugin-options).
+[should set one](#configuration).
 
 ### status
 
@@ -162,15 +162,15 @@ export const SharedError = AnyError.subclass('SharedError', {
   http: { ...options },
 })
 
-export const InputError = SharedError.subclass('InputError')
 export const AuthError = SharedError.subclass('AuthError')
+export const InputError = SharedError.subclass('InputError')
 ```
 
 - Any error of a specific class: second argument to
   [`AnyError.subclass()`](https://github.com/ehmicky/modern-errors#anyerrorsubclassname-options)
 
 ```js
-export const InputError = AnyError.subclass('InputError', {
+export const AuthError = AnyError.subclass('AuthError', {
   http: { ...options },
 })
 ```
@@ -178,12 +178,10 @@ export const InputError = AnyError.subclass('InputError', {
 - A specific error: second argument to the error's constructor
 
 ```js
-throw new InputError('...', { http: { ...options } })
+throw new AuthError('...', { http: { ...options } })
 ```
 
-- A specific
-  [`error.httpResponse()`](https://github.com/ehmicky/modern-errors#errorhttpresponse)
-  call
+- A specific [`error.httpResponse()`](#errorhttpresponse) call
 
 ```js
 error.httpResponse(...args, { ...options })
