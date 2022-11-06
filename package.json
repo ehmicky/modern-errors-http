@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^1.0.99",
-    "test-each": "^5.4.2"
+    "test-each": "^5.5.0"
   },
   "peerDependencies": {
     "modern-errors": "^4.0.0"
