@@ -10,8 +10,8 @@
 [![Medium](https://img.shields.io/badge/%E2%80%8B-medium-brightgreen.svg?logo=medium)](https://medium.com/@ehmicky)
 
 [`modern-errors`](https://github.com/ehmicky/modern-errors)
-[plugin](https://github.com/ehmicky/modern-errors#plugins-1) to create HTTP
-error responses.
+[plugin](https://github.com/ehmicky/modern-errors#-plugins) to create HTTP error
+responses.
 
 This adds [`error.httpResponse()`](#errorhttpresponse) which converts `error` to
 a plain object ([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem
