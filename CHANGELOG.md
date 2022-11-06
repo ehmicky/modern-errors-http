@@ -1,3 +1,9 @@
+# 1.3.0
+
+## Features
+
+- Decrease package size
+
 # 1.2.0
 
 ## Features
