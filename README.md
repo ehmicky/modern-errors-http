@@ -28,13 +28,13 @@ details") to use in an HTTP response.
 import modernErrors from 'modern-errors'
 import modernErrorsHttp from 'modern-errors-http'
 
-export const AnyError = modernErrors([modernErrorsHttp])
+export const BaseError = modernErrors([modernErrorsHttp])
 ```
 
 [Configuring](#configuration) error fields.
 
 ```js
-export const AuthError = AnyError.subclass('AuthError', {
+export const AuthError = BaseError.subclass('AuthError', {
   http: {
     type: 'https://example.com/probs/auth',
     status: 401,
@@ -156,14 +156,14 @@ set to an empty object.
   [`modernErrors()`](https://github.com/ehmicky/modern-errors#modernerrorsplugins-options)
 
 ```js
-export const AnyError = modernErrors(plugins, { http: { ...options } })
+export const BaseError = modernErrors(plugins, { http: { ...options } })
 ```
 
 - Any error of multiple classes: using
-  [`ErrorClass.subclass()`](https://github.com/ehmicky/modern-errors#anyerrorsubclassname-options)
+  [`ErrorClass.subclass()`](https://github.com/ehmicky/modern-errors#baseerrorsubclassname-options)
 
 ```js
-export const SharedError = AnyError.subclass('SharedError', {
+export const SharedError = BaseError.subclass('SharedError', {
   http: { ...options },
 })
 
@@ -172,10 +172,10 @@ export const InputError = SharedError.subclass('InputError')
 ```
 
 - Any error of a specific class: second argument to
-  [`AnyError.subclass()`](https://github.com/ehmicky/modern-errors#anyerrorsubclassname-options)
+  [`BaseError.subclass()`](https://github.com/ehmicky/modern-errors#baseerrorsubclassname-options)
 
 ```js
-export const AuthError = AnyError.subclass('AuthError', {
+export const AuthError = BaseError.subclass('AuthError', {
   http: { ...options },
 })
 ```

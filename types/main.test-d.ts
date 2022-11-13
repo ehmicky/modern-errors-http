@@ -7,8 +7,8 @@ import {
   expectError,
 } from 'tsd'
 
-const AnyError = modernErrors([plugin])
-const error = new AnyError('', { cause: '' })
+const BaseError = modernErrors([plugin])
+const error = new BaseError('', { cause: '' })
 const httpResponse = error.httpResponse()
 
 modernErrors([plugin], { http: {} })
