@@ -91,8 +91,7 @@ Plugin object to pass to the
 
 ## BaseError.httpResponse(error)
 
-`error`: `Error`
-
+`error`: `Error`\
 _Return value_: `HttpResponse`
 
 Converts `error` to a plain object to use in an HTTP response. Its shape follows
@@ -187,7 +186,7 @@ throw new AuthError('...', { http: { ...options } })
 - A specific [`BaseError.httpResponse(error)`](#baseerrorhttpresponseerror) call
 
 ```js
-BaseError.httpResponse(error, ...args, { ...options })
+BaseError.httpResponse(error, { ...options })
 ```
 
 # Related projects
