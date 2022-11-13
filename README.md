@@ -163,7 +163,7 @@ set to an empty object.
 ```js
 export const BaseError = ModernError.subclass('BaseError', {
   plugins: [modernErrorsHttp],
-  http: { ...options },
+  http: options,
 })
 ```
 
@@ -171,22 +171,20 @@ export const BaseError = ModernError.subclass('BaseError', {
   [`ErrorClass.subclass()`](https://github.com/ehmicky/modern-errors#options-1)
 
 ```js
-export const AuthError = BaseError.subclass('AuthError', {
-  http: { ...options },
-})
+export const AuthError = BaseError.subclass('AuthError', { http: options })
 ```
 
 - A specific error: second argument to
   [`new ErrorClass()`](https://github.com/ehmicky/modern-errors#options-3)
 
 ```js
-throw new AuthError('...', { http: { ...options } })
+throw new AuthError('...', { http: options })
 ```
 
 - A specific [`BaseError.httpResponse(error)`](#baseerrorhttpresponseerror) call
 
 ```js
-BaseError.httpResponse(error, { ...options })
+BaseError.httpResponse(error, options)
 ```
 
 # Related projects
