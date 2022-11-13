@@ -1,7 +1,7 @@
 import test from 'ava'
 import { each } from 'test-each'
 
-import { TestError, testError } from './helpers/main.js'
+import { BaseError, baseError } from './helpers/main.js'
 
 each(
   [
@@ -21,7 +21,7 @@ each(
   ],
   ({ title }, [propName, propValue]) => {
     test(`Valid options are kept | ${title}`, (t) => {
-      const httpResponse = testError.httpResponse({ [propName]: propValue })
+      const httpResponse = baseError.httpResponse({ [propName]: propValue })
       t.deepEqual(httpResponse[propName], propValue)
     })
   },
@@ -37,8 +37,8 @@ each(
   ],
   ({ title }, http) => {
     test(`Assign default options | ${title}`, (t) => {
-      const { name, message, stack } = testError
-      const httpResponse = testError.httpResponse(http)
+      const { name, message, stack } = baseError
+      const httpResponse = baseError.httpResponse(http)
       t.deepEqual(httpResponse, { title: name, detail: message, stack })
     })
   },
@@ -46,11 +46,11 @@ each(
 
 test('Assign default extra', (t) => {
   const props = { prop: true }
-  t.deepEqual(new TestError('test', { props }).httpResponse().extra, props)
+  t.deepEqual(new BaseError('test', { props }).httpResponse().extra, props)
 })
 
 test('Keep extra JSON-safe', (t) => {
-  t.deepEqual(testError.httpResponse({ extra: { one: true, two: 0n } }).extra, {
+  t.deepEqual(baseError.httpResponse({ extra: { one: true, two: 0n } }).extra, {
     one: true,
   })
 })
@@ -58,7 +58,7 @@ test('Keep extra JSON-safe', (t) => {
 test('Keep object keys order', (t) => {
   t.deepEqual(
     Object.keys(
-      testError.httpResponse({
+      baseError.httpResponse({
         extra: {},
         stack: '',
         instance: '',

@@ -1,7 +1,7 @@
 import test from 'ava'
 import { each } from 'test-each'
 
-import { testError } from './helpers/main.js'
+import { baseError } from './helpers/main.js'
 
 each(
   [
@@ -20,7 +20,7 @@ each(
   ],
   ({ title }, http) => {
     test(`Options are validated | ${title}`, (t) => {
-      t.throws(testError.httpResponse.bind(testError, http))
+      t.throws(baseError.httpResponse.bind(baseError, http))
     })
   },
 )
