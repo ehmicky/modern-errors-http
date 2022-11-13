@@ -1,3 +1,11 @@
+# 2.2.0
+
+## Features
+
+- `error.httpResponse()` has been renamed to
+  [`BaseError.httpResponse(error)`](README.md#baseerrorhttpresponseerror).
+  `error.httpResponse()` is deprecated but still supported.
+
 # 2.1.0
 
 ## Features

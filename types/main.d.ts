@@ -58,7 +58,7 @@ export interface Options {
 }
 
 /**
- * `error.httpResponse()`'s return value
+ * `BaseError.httpResponse(error)`'s return value
  */
 export interface HttpResponse extends Options {
   readonly title: string
@@ -80,7 +80,7 @@ declare const plugin: {
      *
      * @example
      * ```js
-     * const object = error.httpResponse()
+     * const object = BaseError.httpResponse(error)
      * // {
      * //   type: 'https://example.com/probs/auth',
      * //   status: 401,

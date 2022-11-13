@@ -15,9 +15,10 @@
 [plugin](https://github.com/ehmicky/modern-errors#-plugins) to create HTTP error
 responses.
 
-This adds [`error.httpResponse()`](#errorhttpresponse) which converts `error` to
-a plain object ([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem
-details") to use in an HTTP response.
+This adds [`BaseError.httpResponse(error)`](#baseerrorhttpresponseerror) which
+converts `error` to a plain object
+([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem details") to use
+in an HTTP response.
 
 # Example
 
@@ -44,7 +45,7 @@ export const AuthError = BaseError.subclass('AuthError', {
 })
 ```
 
-[Creating](#errorhttpresponse) an HTTP error response.
+[Creating](#baseerrorhttpresponseerror) an HTTP error response.
 
 ```js
 const error = new AuthError('Could not authenticate.', {
@@ -53,7 +54,7 @@ const error = new AuthError('Could not authenticate.', {
     extra: { userId: 62 },
   },
 })
-const object = error.httpResponse()
+const object = BaseError.httpResponse(error)
 // {
 //   type: 'https://example.com/probs/auth',
 //   status: 401,
@@ -88,7 +89,9 @@ Plugin object to pass to the
 [`plugins` option](https://github.com/ehmicky/modern-errors#adding-plugins) of
 `ErrorClass.subclass()`.
 
-## error.httpResponse()
+## BaseError.httpResponse(error)
+
+`error`: `Error`
 
 _Return value_: `HttpResponse`
 
@@ -181,10 +184,10 @@ export const AuthError = BaseError.subclass('AuthError', {
 throw new AuthError('...', { http: { ...options } })
 ```
 
-- A specific [`error.httpResponse()`](#errorhttpresponse) call
+- A specific [`BaseError.httpResponse(error)`](#baseerrorhttpresponseerror) call
 
 ```js
-error.httpResponse(...args, { ...options })
+BaseError.httpResponse(error, ...args, { ...options })
 ```
 
 # Related projects

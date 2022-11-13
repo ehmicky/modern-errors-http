@@ -21,7 +21,9 @@ each(
   ],
   ({ title }, [propName, propValue]) => {
     test(`Valid options are kept | ${title}`, (t) => {
-      const httpResponse = baseError.httpResponse({ [propName]: propValue })
+      const httpResponse = BaseError.httpResponse(baseError, {
+        [propName]: propValue,
+      })
       t.deepEqual(httpResponse[propName], propValue)
     })
   },
@@ -35,30 +37,36 @@ each(
       (optName) => ({ [optName]: undefined }),
     ),
   ],
-  ({ title }, http) => {
+  ({ title }, options) => {
     test(`Assign default options | ${title}`, (t) => {
       const { name, message, stack } = baseError
-      const httpResponse = baseError.httpResponse(http)
+      const httpResponse = BaseError.httpResponse(baseError, options)
       t.deepEqual(httpResponse, { title: name, detail: message, stack })
     })
   },
 )
 
+test('Can be called as error.httpResponse()', (t) => {
+  t.is(BaseError.httpResponse(baseError).title, baseError.name)
+})
+
 test('Assign default extra', (t) => {
   const props = { prop: true }
-  t.deepEqual(new BaseError('test', { props }).httpResponse().extra, props)
+  const error = new BaseError('test', { props })
+  t.deepEqual(BaseError.httpResponse(error).extra, props)
 })
 
 test('Keep extra JSON-safe', (t) => {
-  t.deepEqual(baseError.httpResponse({ extra: { one: true, two: 0n } }).extra, {
-    one: true,
-  })
+  t.deepEqual(
+    BaseError.httpResponse(baseError, { extra: { one: true, two: 0n } }).extra,
+    { one: true },
+  )
 })
 
 test('Keep object keys order', (t) => {
   t.deepEqual(
     Object.keys(
-      baseError.httpResponse({
+      BaseError.httpResponse(baseError, {
         extra: {},
         stack: '',
         instance: '',

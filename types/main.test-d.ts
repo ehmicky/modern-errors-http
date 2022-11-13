@@ -9,17 +9,17 @@ import {
 
 const BaseError = ModernError.subclass('BaseError', { plugins: [plugin] })
 const error = new BaseError('')
-const httpResponse = error.httpResponse()
+const httpResponse = BaseError.httpResponse(error)
 
 ModernError.subclass('TestError', { plugins: [plugin], http: {} })
-error.httpResponse({})
+BaseError.httpResponse(error, {})
 expectAssignable<Options>({})
-expectError(error.httpResponse(undefined))
+expectError(BaseError.httpResponse(error, undefined))
 expectNotAssignable<Options>(undefined)
 expectError(
   ModernError.subclass('TestError', { plugins: [plugin], http: true }),
 )
-expectError(error.httpResponse(true))
+expectError(BaseError.httpResponse(error, true))
 expectNotAssignable<Options>(true)
 expectError(
   ModernError.subclass('TestError', {
@@ -27,11 +27,11 @@ expectError(
     http: { unknown: true },
   }),
 )
-expectError(error.httpResponse({ unknown: true }))
+expectError(BaseError.httpResponse(error, { unknown: true }))
 expectNotAssignable<Options>({ unknown: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { type: '' } })
-error.httpResponse({ type: '' })
+BaseError.httpResponse(error, { type: '' })
 expectAssignable<Options>({ type: '' })
 expectError(
   ModernError.subclass('TestError', {
@@ -39,11 +39,11 @@ expectError(
     http: { type: true },
   }),
 )
-expectError(error.httpResponse({ type: true }))
+expectError(BaseError.httpResponse(error, { type: true }))
 expectNotAssignable<Options>({ type: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { status: 200 } })
-error.httpResponse({ status: 200 })
+BaseError.httpResponse(error, { status: 200 })
 expectAssignable<Options>({ status: 200 })
 expectError(
   ModernError.subclass('TestError', {
@@ -51,11 +51,11 @@ expectError(
     http: { status: true },
   }),
 )
-expectError(error.httpResponse({ status: true }))
+expectError(BaseError.httpResponse(error, { status: true }))
 expectNotAssignable<Options>({ status: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { title: '' } })
-error.httpResponse({ title: '' })
+BaseError.httpResponse(error, { title: '' })
 expectAssignable<Options>({ title: '' })
 expectError(
   ModernError.subclass('TestError', {
@@ -63,11 +63,11 @@ expectError(
     http: { title: true },
   }),
 )
-expectError(error.httpResponse({ title: true }))
+expectError(BaseError.httpResponse(error, { title: true }))
 expectNotAssignable<Options>({ title: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { detail: '' } })
-error.httpResponse({ detail: '' })
+BaseError.httpResponse(error, { detail: '' })
 expectAssignable<Options>({ detail: '' })
 expectError(
   ModernError.subclass('TestError', {
@@ -75,11 +75,11 @@ expectError(
     http: { detail: true },
   }),
 )
-expectError(error.httpResponse({ detail: true }))
+expectError(BaseError.httpResponse(error, { detail: true }))
 expectNotAssignable<Options>({ detail: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { instance: '' } })
-error.httpResponse({ instance: '' })
+BaseError.httpResponse(error, { instance: '' })
 expectAssignable<Options>({ instance: '' })
 expectError(
   ModernError.subclass('TestError', {
@@ -87,11 +87,11 @@ expectError(
     http: { instance: true },
   }),
 )
-expectError(error.httpResponse({ instance: true }))
+expectError(BaseError.httpResponse(error, { instance: true }))
 expectNotAssignable<Options>({ instance: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { stack: '' } })
-error.httpResponse({ stack: '' })
+BaseError.httpResponse(error, { stack: '' })
 expectAssignable<Options>({ stack: '' })
 expectError(
   ModernError.subclass('TestError', {
@@ -99,17 +99,17 @@ expectError(
     http: { stack: true },
   }),
 )
-expectError(error.httpResponse({ stack: true }))
+expectError(BaseError.httpResponse(error, { stack: true }))
 expectNotAssignable<Options>({ stack: true })
 
 ModernError.subclass('TestError', { plugins: [plugin], http: { extra: {} } })
-error.httpResponse({ extra: {} })
+BaseError.httpResponse(error, { extra: {} })
 expectAssignable<Options>({ extra: {} })
 ModernError.subclass('TestError', {
   plugins: [plugin],
   http: { extra: { prop: true } },
 })
-error.httpResponse({ extra: { prop: true } })
+BaseError.httpResponse(error, { extra: { prop: true } })
 expectAssignable<Options>({ extra: { prop: true } })
 expectError(
   ModernError.subclass('TestError', {
@@ -117,7 +117,7 @@ expectError(
     http: { extra: true },
   }),
 )
-expectError(error.httpResponse({ extra: true }))
+expectError(BaseError.httpResponse(error, { extra: true }))
 expectNotAssignable<Options>({ extra: true })
 
 expectType<HttpResponse>(httpResponse)
@@ -129,3 +129,6 @@ expectType<string | undefined>(httpResponse.instance)
 expectType<string>(httpResponse.stack)
 expectType<object | undefined>(httpResponse.extra)
 expectError(httpResponse.extra?.prop)
+
+expectType<HttpResponse>(error.httpResponse())
+expectError(error.httpResponse(true))
