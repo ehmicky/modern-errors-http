@@ -1,3 +1,10 @@
+# 2.0.0
+
+## Breaking changes
+
+- [`modern-errors@5`](https://github.com/ehmicky/modern-errors/releases/tag/5.0.0)
+  is now required
+
 # 1.5.0
 
 ## Features
