@@ -51,12 +51,10 @@
     "test": "test"
   },
   "dependencies": {
-    "is-plain-obj": "^4.1.0",
-    "safe-json-value": "^1.10.0"
+    "error-http-response": "^1.0.0"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^1.0.102",
-    "test-each": "^5.6.0"
+    "@ehmicky/dev-tasks": "^1.0.102"
   },
   "peerDependencies": {
     "modern-errors": "^5.1.1"
