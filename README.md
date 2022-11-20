@@ -189,6 +189,8 @@ BaseError.httpResponse(error, options)
 
 # Related projects
 
+- [`error-http-response`](https://github.com/ehmicky/error-http-response):
+  Create HTTP error responses
 - [`safe-json-value`](https://github.com/ehmicky/safe-json-value): ⛑️ JSON
   serialization should never fail
 - [`modern-errors`](https://github.com/ehmicky/modern-errors): Handle errors
