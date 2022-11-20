@@ -1,3 +1,10 @@
+# 2.3.0
+
+## Features
+
+- Split core logic to a separate module
+  [`error-http-response`](https://github.com/ehmicky/error-http-response)
+
 # 2.2.0
 
 ## Features
