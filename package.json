@@ -55,7 +55,7 @@
     "error-http-response": "^1.0.0"
   },
   "devDependencies": {
-    "@ehmicky/dev-tasks": "^2.0.5"
+    "@ehmicky/dev-tasks": "^2.0.6"
   },
   "peerDependencies": {
     "modern-errors": "^5.3.1"
