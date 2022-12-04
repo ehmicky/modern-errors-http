@@ -1,6 +1,7 @@
 import ModernError from 'modern-errors'
-import plugin, { Options, HttpResponse } from 'modern-errors-http'
 import { expectType, expectAssignable, expectNotAssignable } from 'tsd'
+
+import plugin, { type Options, type HttpResponse } from 'modern-errors-http'
 
 const BaseError = ModernError.subclass('BaseError', { plugins: [plugin] })
 const error = new BaseError('')

@@ -1,5 +1,5 @@
-import type { Info } from 'modern-errors'
 import type { Options, HttpResponse } from 'error-http-response'
+import type { Info } from 'modern-errors'
 
 export type { Options, HttpResponse }
 
