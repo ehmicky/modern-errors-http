@@ -57,7 +57,7 @@
     "@ehmicky/dev-tasks": "^2.0.64"
   },
   "peerDependencies": {
-    "modern-errors": "^5.5.2"
+    "modern-errors": "^5.5.3"
   },
   "engines": {
     "node": ">=14.18.0"
