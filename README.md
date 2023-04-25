@@ -20,16 +20,6 @@ converts `error` to a plain object
 ([RFC 7807](https://www.rfc-editor.org/rfc/rfc7807), "problem details") to use
 in an HTTP response.
 
-# Hire me
-
-Please
-[reach out](https://www.linkedin.com/feed/update/urn:li:activity:7018596298127781890/)
-if you're looking for a Node.js API or CLI engineer (10 years of experience).
-Most recently I have been [Netlify Build](https://github.com/netlify/build)'s
-and [Netlify Plugins](https://www.netlify.com/products/build/plugins/)'
-technical lead for 2.5 years. I am available for full-time remote positions in
-either US or EU time zones.
-
 # Example
 
 [Adding the plugin](https://github.com/ehmicky/modern-errors#adding-plugins) to
