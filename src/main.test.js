@@ -1,5 +1,6 @@
 import test from 'ava'
 import ModernError from 'modern-errors'
+
 import modernErrorsHttp from 'modern-errors-http'
 
 export const BaseError = ModernError.subclass('BaseError', {
