@@ -42,7 +42,10 @@
   ],
   "license": "MIT",
   "homepage": "https://www.github.com/ehmicky/modern-errors-http",
-  "repository": "ehmicky/modern-errors-http",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehmicky/modern-errors-http.git"
+  },
   "bugs": {
     "url": "https://github.com/ehmicky/modern-errors-http/issues"
   },
