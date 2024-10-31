@@ -1,7 +1,7 @@
-import type { Options, HttpResponse } from 'error-http-response'
+import type { HttpResponse, Options } from 'error-http-response'
 import type { Info } from 'modern-errors'
 
-export type { Options, HttpResponse }
+export type { HttpResponse, Options }
 
 /**
  * `modern-errors-http` plugin
