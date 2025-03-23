@@ -54,7 +54,7 @@
     "lib": "src"
   },
   "dependencies": {
-    "error-http-response": "^3.0.0"
+    "error-http-response": "^3.0.1"
   },
   "devDependencies": {
     "@ehmicky/dev-tasks": "^3.0.33",
