@@ -62,7 +62,7 @@
     "@ehmicky/prettier-config": "^1.0.6"
   },
   "peerDependencies": {
-    "modern-errors": "^7.1.1"
+    "modern-errors": "^7.1.2"
   },
   "engines": {
     "node": ">=18.18.0"
